@@ -1,0 +1,29 @@
+{
+  "name": "Interactive Scraper",
+  "description": "This is my attempt to write a scraper in Chrome which can persist data in Indexed DB. Also, the scraper will visually scraper the data and does a screen capture for future reference.",
+  "version": "0.6",
+  "permissions": ["contextMenus","tabs","http://*/*", "https://*/*"],
+  "background": {  
+    "scripts": ["sample.js"],
+	"persistent": true
+  },
+"content_scripts": [{
+    "matches": [ "http://*/*", "https://*/*" ],    
+	"all_frames": true,
+    "js": [
+      "lib/jquery-ui-1.8.6/js/jquery-1.9.0.min.js", 				
+      "shared.js",      	  	  
+	  "js/contentscript.js"
+    ],
+	"run_at": "document_end"
+ }],
+"icons": {
+    "16": "1373966469_Crawler_with_shadow.png"
+	}, 
+ "browser_action": {
+ "default_icon":"1373966469_Crawler_with_shadow.png",
+    "default_title": "Roll Scraper",      // optional; shown in tooltip    
+	"default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
